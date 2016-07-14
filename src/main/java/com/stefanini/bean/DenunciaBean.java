@@ -1,11 +1,11 @@
 package com.stefanini.bean;
 
-import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import com.stefanini.service.DenunciaService;
 
-@ManagedBean(name = "denunciaMB")
+@Named( "denunciaMB")
 public class DenunciaBean {
 
     @Inject
