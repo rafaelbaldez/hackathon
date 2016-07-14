@@ -1,17 +1,18 @@
-package com.stefanini.editor;
+package com.stefanini.bean;
 
 import javax.faces.bean.ManagedBean;
+import javax.inject.Inject;
 
-@ManagedBean(name = "editor")
-public class EditorBean {
+import com.stefanini.service.DenunciaService;
 
-	private String value = "This editor is provided by PrimeFaces";
+@ManagedBean(name = "denunciaMB")
+public class DenunciaBean {
 
-	public String getValue() {
-		return value;
-	}
+    @Inject
+    private DenunciaService denunciaService;
 
-	public void setValue(String value) {
-		this.value = value;
-	}
+    public String chamar() {
+        return "teste.jsf";
+    }
+
 }
