@@ -7,10 +7,6 @@
 <h:head>
 </h:head>
 <h:body>
-    <h:form>
-         <p:outputLabel for="nome" value="Digite seu nome:"/>
-  		 <p:inputText id="nome" value="#{agenteMB.agente.nome}"/>
-         <p:commandButton value="Chamar Bean" action="#{agenteMB.chamar()}"></p:commandButton>
-    </h:form>
+    <h:outputLabel value="#{agenteMB.nome}"/>
 </h:body>
 </html>
