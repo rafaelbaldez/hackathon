@@ -21,11 +21,13 @@ public class AgenteBean implements Serializable {
 
 	@Inject
     private Agente agente;
-    
+    @Inject
+	private AgenteService agenteService;
     
 
     public String chamar() {
-        return "/teste";
+        agenteService.incluir(agente);
+    	return "/teste";
     }
 
 

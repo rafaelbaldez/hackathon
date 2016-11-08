@@ -42,7 +42,7 @@ public class Proprietario implements java.io.Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
+	//@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "cpfProprietario", unique = true, nullable = false)
 	public Integer getCpfProprietario() {

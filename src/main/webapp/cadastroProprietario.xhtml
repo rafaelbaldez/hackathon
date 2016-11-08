@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+    <h:form>
+    	<h:panelGrid columns="2" title="cadastro de proprietario" >
+         	<p:outputLabel for="nome" value="Nome do proprietário:"/>
+  		 	<p:inputText id="nome" value="#{propietarioMB.proprietario.nome}"/>
+  		 	<p:outputLabel for="cpf" value="CPF:"/>
+  		 	<p:inputText id="cpf" value="#{propietarioMB.proprietario.cpfProprietario}"/>
+  		 	<p:outputLabel for="endereco" value="Endereço(Rua,Avenida):"/>
+  		 	<p:inputText id="endereco" value="#{propietarioMB.proprietario.endereco}"/>
+  		 	<p:outputLabel for="bairro" value="Bairro:"/>
+  		 	<p:inputText id="bairro" value="#{propietarioMB.proprietario.bairro}"/>
+  		 	<p:outputLabel for="cidade" value="Cidade:"/>
+  		 	<p:inputText id="cidade" value="#{propietarioMB.proprietario.cidade}"/>
+  		 	<p:outputLabel for="uf" value="Estado:"/>
+  		 	<p:inputText id="uf" value="#{propietarioMB.proprietario.uf}"/>
+  		 	<p:outputLabel for="uf" value="Estado:"/>
+  		 	<h:selectOneMenu id="basic" value="#{propietarioMB.proprietario.sexo}">
+            	<f:selectItem itemLabel="Masculino" itemValue="M" />
+            	<f:selectItem itemLabel="Feminino" itemValue="F" />
+        	</h:selectOneMenu>
+  		 	Data de Nascimento
+  		 	<p:calendar id="data" value="#{propietarioMB.proprietario.dtNascimento}"></p:calendar><br/>
+         	<p:commandButton value="Cadastrar Proprietário" action="#{propietarioMB.chamar()}"></p:commandButton>
+    	</h:panelGrid>
+    </h:form>
+</h:body>
+</html>

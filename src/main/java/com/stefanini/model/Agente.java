@@ -22,6 +22,7 @@ public class Agente implements java.io.Serializable {
 	private String nome;
 	private Date dtContratacao;
 	private Integer tempoServico;
+	
 
 	public Agente() {
 	}
@@ -71,5 +72,7 @@ public class Agente implements java.io.Serializable {
 	public void setTempoServico(Integer tempoServico) {
 		this.tempoServico = tempoServico;
 	}
+	
+	
 
 }

@@ -8,11 +8,9 @@
 </h:head>
 <h:body>
     <h:form>
-         <p:outputLabel for="nome" value="Digite seu nome:"/>
-  		 <p:inputText id="nome" value="#{agenteMB.agente.nome}"/><br/>
-  		 Data de Contratação
-  		 <p:calendar id="data" value="#{agenteMB.agente.dtContratacao}"></p:calendar><br/>
-         <p:commandButton value="Chamar Bean" action="#{agenteMB.chamar()}"></p:commandButton>
+         <p:outputLabel for="nome" value="Descrição da Categoria"/>
+  		 <p:inputText id="nome" value="#{categoriaMB.categoria.descricaiCategoria}"/><br/>
+         <p:commandButton value="Chamar Bean" action="#{categoriaMB.chamar()}"></p:commandButton>
     </h:form>
 </h:body>
 </html>

@@ -6,7 +6,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import com.stefanini.model.Agente;
-import com.stefanini.model.Denuncia;
+
 
 public class AgenteRepository {
 	@Inject
