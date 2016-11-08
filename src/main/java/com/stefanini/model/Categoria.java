@@ -1,11 +1,15 @@
 package com.stefanini.model;
 // Generated 07/11/2016 12:04:55 by Hibernate Tools 4.3.1.Final
 
+import static javax.persistence.GenerationType.IDENTITY;
+
+import java.util.ArrayList;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -17,6 +21,10 @@ public class Categoria implements java.io.Serializable {
 
 	private Integer idCategoria;
 	private String descricaiCategoria;
+	//@OneToMany(mappedBy="idCategoria")
+	//private ArrayList<Modelo> modelos;
+
+	
 
 	public Categoria() {
 	}
@@ -45,5 +53,12 @@ public class Categoria implements java.io.Serializable {
 	public void setDescricaiCategoria(String descricaiCategoria) {
 		this.descricaiCategoria = descricaiCategoria;
 	}
+	/*public ArrayList<Modelo> getModelos() {
+		return modelos;
+	}
+
+	public void addModelos(Modelo modelo) {
+		this.modelos.add(modelo);
+	}*/
 
 }

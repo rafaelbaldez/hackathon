@@ -1,14 +1,22 @@
 package com.stefanini.bean;
 
+import java.io.Serializable;
+
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.stefanini.service.DenunciaService;
 
 @Named( "denunciaMB")
-public class DenunciaBean {
+@SessionScoped
+public class DenunciaBean implements Serializable {
 
-    @Inject
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Inject
     private DenunciaService denunciaService;
 
     public String chamar() {

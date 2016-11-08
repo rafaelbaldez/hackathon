@@ -8,6 +8,7 @@
 </h:head>
 <h:body>
     <h:form>
+    <p:fieldset legend="Cadastro Proprietário">
     	<h:panelGrid columns="2" title="cadastro de proprietario" >
          	<p:outputLabel for="nome" value="Nome do proprietário:"/>
   		 	<p:inputText id="nome" value="#{propietarioMB.proprietario.nome}"/>
@@ -30,6 +31,7 @@
   		 	<p:calendar id="data" value="#{propietarioMB.proprietario.dtNascimento}"></p:calendar><br/>
          	<p:commandButton value="Cadastrar Proprietário" action="#{propietarioMB.chamar()}"></p:commandButton>
     	</h:panelGrid>
+    	</p:fieldset>
     </h:form>
 </h:body>
 </html>

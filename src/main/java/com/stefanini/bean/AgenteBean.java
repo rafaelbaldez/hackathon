@@ -7,8 +7,11 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.stefanini.model.Agente;
+import com.stefanini.model.Categoria;
+import com.stefanini.model.Modelo;
 import com.stefanini.service.AgenteService;
-import com.stefanini.service.DenunciaService;
+import com.stefanini.service.CategoriaService;
+import com.stefanini.service.ModeloService;
 
 @Named("agenteMB")
 @SessionScoped
@@ -24,9 +27,9 @@ public class AgenteBean implements Serializable {
     @Inject
 	private AgenteService agenteService;
     
-
+    
     public String chamar() {
-        agenteService.incluir(agente);
+    	agenteService.incluir(agente);
     	return "/teste";
     }
 
@@ -41,6 +44,8 @@ public class AgenteBean implements Serializable {
 	public void setAgente(Agente agente) {
 		this.agente = agente;
 	}
+	
+
 
 	
 

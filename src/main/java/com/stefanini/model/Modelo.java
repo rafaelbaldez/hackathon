@@ -5,7 +5,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -16,6 +19,7 @@ import javax.persistence.Table;
 public class Modelo implements java.io.Serializable {
 
 	private Integer idModelo;
+	//@ManyToOne(cascade=CascadeType.ALL)
 	private int idCategoria;
 	private String descricaoModelo;
 
