@@ -8,6 +8,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -18,19 +19,24 @@ import javax.persistence.Table;
 @Table(name = "modelo", catalog = "hackathon")
 public class Modelo implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer idModelo;
-	//@ManyToOne(cascade=CascadeType.ALL)
-	private int idCategoria;
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="idCategoria")
+	private Categoria idCategoria;
 	private String descricaoModelo;
 
 	public Modelo() {
 	}
 
-	public Modelo(int idCategoria) {
+	public Modelo(Categoria idCategoria) {
 		this.idCategoria = idCategoria;
 	}
 
-	public Modelo(int idCategoria, String descricaoModelo) {
+	public Modelo(Categoria idCategoria, String descricaoModelo) {
 		this.idCategoria = idCategoria;
 		this.descricaoModelo = descricaoModelo;
 	}
@@ -46,13 +52,14 @@ public class Modelo implements java.io.Serializable {
 	public void setIdModelo(Integer idModelo) {
 		this.idModelo = idModelo;
 	}
-
-	@Column(name = "idCategoria", nullable = false)
-	public int getIdCategoria() {
+	
+	
+	//@Column(name = "idCategoria", nullable = false)
+	public Categoria getIdCategoria() {
 		return this.idCategoria;
 	}
 
-	public void setIdCategoria(int idCategoria) {
+	public void setIdCategoria(Categoria idCategoria) {
 		this.idCategoria = idCategoria;
 	}
 

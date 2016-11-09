@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.stefanini.model.Categoria;
+import com.stefanini.service.CategoriaService;
 @Named("categoriaMB")
 @SessionScoped
 public class CategoriaBean implements Serializable {
@@ -17,9 +18,19 @@ public class CategoriaBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Inject
-	private CategoriaBean categoria;
+	private Categoria categoria;
+	@Inject
+	private CategoriaService categoriaService;
 	
 	public ArrayList<Categoria> listar(){
-		return categoria.listar();
+		return categoriaService.listar();
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 }

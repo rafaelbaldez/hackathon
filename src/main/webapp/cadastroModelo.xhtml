@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 </h:head>
 <h:body>
-    <h:form>
-         <p:outputLabel for="nome" value="Descrição do Modelo"/>
-  		 <p:inputText id="nome" value="#{modeloMB.modelo.descricaoModelo}"/><br/>
-  		 
-         <p:commandButton value="Chamar Bean" action="#{modeloMB.chamar()}"></p:commandButton>
-    </h:form>
+	<h:form>
+		<h:panelGrid columns="2" title="cadastro de proprietario">
+			<p:outputLabel for="nome" value="Descrição do Modelo"  />
+			<p:inputText id="nome" value="#{modeloMB.modelo.descricaoModelo}" />
+			<br />
+			<h:selectOneMenu value="#{modeloMB.modelo.idCategoria}">
+				<f:selectItems value="#{categoriaMB.listar()}" var="item"
+					itemLabel="#{item.descricaiCategoria}" itemValue="#{item}" />
+			</h:selectOneMenu>
+			<h:commandButton value="Chamar Bean" action="#{modeloMB.chamar()}"/>
+		</h:panelGrid>
+		
+	</h:form>
 </h:body>
 </html>

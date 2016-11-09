@@ -1,9 +1,12 @@
 package com.stefanini.model;
 // Generated 07/11/2016 12:04:55 by Hibernate Tools 4.3.1.Final
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -13,15 +16,21 @@ import javax.persistence.Table;
 @Table(name = "veiculos", catalog = "hackathon")
 public class Veiculos implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String placa;
 	private int cpfProprietario;
-	private int idModelo;
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="idModelo")
+	private Modelo idModelo;
 	private String uf;
 
 	public Veiculos() {
 	}
 
-	public Veiculos(String placa, int cpfProprietario, int idModelo, String uf) {
+	public Veiculos(String placa, int cpfProprietario, Modelo idModelo, String uf) {
 		this.placa = placa;
 		this.cpfProprietario = cpfProprietario;
 		this.idModelo = idModelo;
@@ -48,12 +57,12 @@ public class Veiculos implements java.io.Serializable {
 		this.cpfProprietario = cpfProprietario;
 	}
 
-	@Column(name = "idModelo", nullable = false)
-	public int getIdModelo() {
+	//@Column(name = "idModelo", nullable = false)
+	public Modelo getIdModelo() {
 		return this.idModelo;
 	}
 
-	public void setIdModelo(int idModelo) {
+	public void setIdModelo(Modelo idModelo) {
 		this.idModelo = idModelo;
 	}
 

@@ -24,7 +24,7 @@ public class ModeloRepository {
 	}
 
 	public List<Modelo> lista() {
-		return this.manager.createQuery("select c from modelo c", Modelo.class)
+		return this.manager.createQuery("select c from Modelo c", Modelo.class)
 				.getResultList();
 	}
 }

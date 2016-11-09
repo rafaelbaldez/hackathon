@@ -19,10 +19,13 @@ import javax.persistence.Table;
 @Table(name = "categoria", catalog = "hackathon")
 public class Categoria implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer idCategoria;
 	private String descricaiCategoria;
-	//@OneToMany(mappedBy="idCategoria")
-	//private ArrayList<Modelo> modelos;
+	
 
 	
 
@@ -53,12 +56,6 @@ public class Categoria implements java.io.Serializable {
 	public void setDescricaiCategoria(String descricaiCategoria) {
 		this.descricaiCategoria = descricaiCategoria;
 	}
-	/*public ArrayList<Modelo> getModelos() {
-		return modelos;
-	}
-
-	public void addModelos(Modelo modelo) {
-		this.modelos.add(modelo);
-	}*/
+	
 
 }

@@ -10,8 +10,6 @@ import javax.inject.Inject;
 import com.stefanini.model.Categoria;
 import com.stefanini.repository.CategoriaRepository;
 
-import antlr.collections.List;
-
 @Stateless
 public class CategoriaService {
 	@Inject

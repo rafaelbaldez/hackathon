@@ -5,7 +5,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -15,24 +19,34 @@ import javax.persistence.Table;
 @Table(name = "infracoes", catalog = "hackathon")
 public class Infracoes implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer idInfracao;
-	private int idAgente;
-	private int idLocalInfracao;
-	private int idTipoInfracao;
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="idAgente")
+	private Agente idAgente;
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="idLocalInfracao")
+	private Localinfracao idLocalInfracao;
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="idTipoInfracao")
+	private Tipoinfracao idTipoInfracao;
 	private String placa;
 	private Integer velocidade;
 
 	public Infracoes() {
 	}
 
-	public Infracoes(int idAgente, int idLocalInfracao, int idTipoInfracao, String placa) {
+	public Infracoes(Agente idAgente, Localinfracao idLocalInfracao, Tipoinfracao idTipoInfracao, String placa) {
 		this.idAgente = idAgente;
 		this.idLocalInfracao = idLocalInfracao;
 		this.idTipoInfracao = idTipoInfracao;
 		this.placa = placa;
 	}
 
-	public Infracoes(int idAgente, int idLocalInfracao, int idTipoInfracao, String placa, Integer velocidade) {
+	public Infracoes(Agente idAgente, Localinfracao idLocalInfracao, Tipoinfracao idTipoInfracao, String placa, Integer velocidade) {
 		this.idAgente = idAgente;
 		this.idLocalInfracao = idLocalInfracao;
 		this.idTipoInfracao = idTipoInfracao;
@@ -52,30 +66,30 @@ public class Infracoes implements java.io.Serializable {
 		this.idInfracao = idInfracao;
 	}
 
-	@Column(name = "idAgente", nullable = false)
-	public int getIdAgente() {
+	//@Column(name = "idAgente", nullable = false)
+	public Agente getIdAgente() {
 		return this.idAgente;
 	}
 
-	public void setIdAgente(int idAgente) {
+	public void setIdAgente(Agente idAgente) {
 		this.idAgente = idAgente;
 	}
 
-	@Column(name = "idLocalInfracao", nullable = false)
-	public int getIdLocalInfracao() {
+	//@Column(name = "idLocalInfracao", nullable = false)
+	public Localinfracao getIdLocalInfracao() {
 		return this.idLocalInfracao;
 	}
 
-	public void setIdLocalInfracao(int idLocalInfracao) {
+	public void setIdLocalInfracao(Localinfracao idLocalInfracao) {
 		this.idLocalInfracao = idLocalInfracao;
 	}
 
-	@Column(name = "idTipoInfracao", nullable = false)
-	public int getIdTipoInfracao() {
+	//@Column(name = "idTipoInfracao", nullable = false)
+	public Tipoinfracao getIdTipoInfracao() {
 		return this.idTipoInfracao;
 	}
 
-	public void setIdTipoInfracao(int idTipoInfracao) {
+	public void setIdTipoInfracao(Tipoinfracao idTipoInfracao) {
 		this.idTipoInfracao = idTipoInfracao;
 	}
 
