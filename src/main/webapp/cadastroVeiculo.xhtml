@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+		<p:fieldset legend="Cadastro Proprietário">
+			<h:panelGrid columns="2" title="cadastro de proprietario">
+				<p:outputLabel for="placa" value="Placa" />
+				<p:inputText id="placa" value="#{veiculoMB.veiculos.placa}" />
+
+				<p:outputLabel for="uf" value="UF" />
+				<p:inputText id="uf" value="#{veiculoMB.veiculos.uf}" />
+			
+			Modelo
+			<h:selectOneMenu value="#{veiculoMB.idModelo}">
+					<f:selectItems value="#{modeloMB.listar()}" var="item"
+						itemLabel="#{item.descricaoModelo}" itemValue="#{item.idModelo}" />
+				</h:selectOneMenu>
+			Proprietario
+			<h:selectOneMenu value="#{veiculoMB.idProprietario}">
+					<f:selectItems value="#{propietarioMB.listar()}" var="item"
+						itemLabel="#{item.nome}" itemValue="#{item.id}" />
+				</h:selectOneMenu>
+				<h:commandButton value="Cadastrar Veiculo"
+					action="#{veiculoMB.chamar()}" />
+			</h:panelGrid>
+		</p:fieldset>
+
+	</h:form>
+</h:body>
+</html>

@@ -1,12 +1,12 @@
 package com.stefanini.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.stefanini.model.Agente;
 import com.stefanini.model.Proprietario;
 import com.stefanini.service.ProprietarioService;
 
@@ -29,7 +29,9 @@ public class ProprietarioBean implements Serializable {
         proprietarioService.incluir(proprietario);
     	return "/teste";
     }
-    
+    public ArrayList<Proprietario> listar(){
+		return proprietarioService.listar();
+	}
     public Proprietario getProprietario() {
 		return proprietario;
 	}

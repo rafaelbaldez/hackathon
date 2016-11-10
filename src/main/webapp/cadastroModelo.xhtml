@@ -15,9 +15,9 @@
 			<p:outputLabel for="nome" value="Descrição do Modelo"  />
 			<p:inputText id="nome" value="#{modeloMB.modelo.descricaoModelo}" />
 			<br />
-			<h:selectOneMenu value="#{modeloMB.modelo.idCategoria}">
+			<h:selectOneMenu value="#{modeloMB.idCat}">
 				<f:selectItems value="#{categoriaMB.listar()}" var="item"
-					itemLabel="#{item.descricaiCategoria}" itemValue="#{item}" />
+					itemLabel="#{item.descricaiCategoria}" itemValue="#{item.idCategoria}" />
 			</h:selectOneMenu>
 			<h:commandButton value="Chamar Bean" action="#{modeloMB.chamar()}"/>
 		</h:panelGrid>

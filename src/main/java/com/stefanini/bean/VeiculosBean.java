@@ -8,6 +8,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.stefanini.model.Veiculos;
+import com.stefanini.service.ModeloService;
+import com.stefanini.service.ProprietarioService;
 import com.stefanini.service.VeiculosService;
 
 @Named("veiculoMB")
@@ -22,6 +24,20 @@ public class VeiculosBean implements Serializable {
 	private Veiculos veiculos;
 	@Inject
 	private VeiculosService veiculoService;
+	@Inject
+	private ProprietarioService proprietarioService;
+	@Inject 
+	private ModeloService modeloService;
+	
+	private int idProprietario;
+	private int idModelo;
+	
+	public String chamar(){
+    	veiculos.setIdModelo(modeloService.busca(idModelo));
+    	veiculos.setProprietario(proprietarioService.busca(idProprietario));
+    	veiculoService.incluir(veiculos);
+    	return "/teste";
+    }
 	
 	public ArrayList<Veiculos> listar(){
 		return veiculoService.listar();
@@ -35,4 +51,20 @@ public class VeiculosBean implements Serializable {
 		this.veiculos = veiculos;
 	}
 
+	public int getIdProprietario() {
+		return idProprietario;
+	}
+
+	public void setIdProprietario(int idProprietario) {
+		this.idProprietario = idProprietario;
+	}
+
+	public int getIdModelo() {
+		return idModelo;
+	}
+
+	public void setIdModelo(int idModelo) {
+		this.idModelo = idModelo;
+	}
+	
 }

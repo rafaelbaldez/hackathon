@@ -1,12 +1,17 @@
 package com.stefanini.model;
 // Generated 07/11/2016 12:04:55 by Hibernate Tools 4.3.1.Final
 
+import static javax.persistence.GenerationType.IDENTITY;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,15 +22,32 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "proprietario", catalog = "hackathon")
 public class Proprietario implements java.io.Serializable {
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private Integer id;
+	@Column(name = "cpfProprietario", unique = true, nullable = false)
 	private Integer cpfProprietario;
+	@Column(name = "nome", length = 100)
 	private String nome;
+	@Column(name = "endereco", length = 100)
 	private String endereco;
+	@Column(name = "bairro", length = 100)
 	private String bairro;
+	@Column(name = "cidade", length = 100)
 	private String cidade;
+	@Column(name = "uf", length = 2)
 	private String uf;
+	@Column(name = "sexo", length = 1)
 	private String sexo;
+	@Temporal(TemporalType.DATE)
+	@Column(name = "dtNascimento", length = 10)
 	private Date dtNascimento;
+	@OneToMany(mappedBy="proprietario")
+	private List<Veiculos> veiculos = new ArrayList<Veiculos>();
 
 	public Proprietario() {
 	}
@@ -41,10 +63,25 @@ public class Proprietario implements java.io.Serializable {
 		this.dtNascimento = dtNascimento;
 	}
 
-	@Id
-	//@GeneratedValue(strategy = IDENTITY)
+	
 
-	@Column(name = "cpfProprietario", unique = true, nullable = false)
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public List<Veiculos> getVeiculos() {
+		return veiculos;
+	}
+
+	public void setVeiculos(Veiculos veiculos) {
+		this.veiculos.add(veiculos);
+	}
+
 	public Integer getCpfProprietario() {
 		return this.cpfProprietario;
 	}
@@ -53,7 +90,7 @@ public class Proprietario implements java.io.Serializable {
 		this.cpfProprietario = cpfProprietario;
 	}
 
-	@Column(name = "nome", length = 100)
+	
 	public String getNome() {
 		return this.nome;
 	}
@@ -62,7 +99,7 @@ public class Proprietario implements java.io.Serializable {
 		this.nome = nome;
 	}
 
-	@Column(name = "endereco", length = 100)
+	
 	public String getEndereco() {
 		return this.endereco;
 	}
@@ -71,7 +108,7 @@ public class Proprietario implements java.io.Serializable {
 		this.endereco = endereco;
 	}
 
-	@Column(name = "bairro", length = 100)
+	
 	public String getBairro() {
 		return this.bairro;
 	}
@@ -80,7 +117,7 @@ public class Proprietario implements java.io.Serializable {
 		this.bairro = bairro;
 	}
 
-	@Column(name = "cidade", length = 100)
+	
 	public String getCidade() {
 		return this.cidade;
 	}
@@ -89,7 +126,7 @@ public class Proprietario implements java.io.Serializable {
 		this.cidade = cidade;
 	}
 
-	@Column(name = "uf", length = 2)
+	
 	public String getUf() {
 		return this.uf;
 	}
@@ -98,7 +135,7 @@ public class Proprietario implements java.io.Serializable {
 		this.uf = uf;
 	}
 
-	@Column(name = "sexo", length = 1)
+	
 	public String getSexo() {
 		return this.sexo;
 	}
@@ -107,8 +144,7 @@ public class Proprietario implements java.io.Serializable {
 		this.sexo = sexo;
 	}
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "dtNascimento", length = 10)
+	
 	public Date getDtNascimento() {
 		return this.dtNascimento;
 	}

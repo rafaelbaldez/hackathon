@@ -22,6 +22,11 @@ public class CategoriaBean implements Serializable {
 	@Inject
 	private CategoriaService categoriaService;
 	
+	 public String chamar(){
+	    	categoriaService.incluir(categoria);
+	    	return "/teste";
+	    }
+	
 	public ArrayList<Categoria> listar(){
 		return categoriaService.listar();
 	}

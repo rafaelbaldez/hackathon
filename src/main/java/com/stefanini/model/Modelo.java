@@ -1,15 +1,16 @@
 package com.stefanini.model;
 // Generated 07/11/2016 12:04:55 by Hibernate Tools 4.3.1.Final
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -23,28 +24,30 @@ public class Modelo implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+
+	@Column(name = "idModelo", unique = true, nullable = false)
 	private Integer idModelo;
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="idCategoria")
-	private Categoria idCategoria;
+	private Categoria categoria;
+	@Column(name = "descricaoModelo", length = 50)
 	private String descricaoModelo;
 
 	public Modelo() {
 	}
 
 	public Modelo(Categoria idCategoria) {
-		this.idCategoria = idCategoria;
+		this.categoria = idCategoria;
 	}
 
 	public Modelo(Categoria idCategoria, String descricaoModelo) {
-		this.idCategoria = idCategoria;
+		this.categoria = idCategoria;
 		this.descricaoModelo = descricaoModelo;
 	}
 
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
-
-	@Column(name = "idModelo", unique = true, nullable = false)
+	
 	public Integer getIdModelo() {
 		return this.idModelo;
 	}
@@ -56,14 +59,14 @@ public class Modelo implements java.io.Serializable {
 	
 	//@Column(name = "idCategoria", nullable = false)
 	public Categoria getIdCategoria() {
-		return this.idCategoria;
+		return this.categoria;
 	}
 
 	public void setIdCategoria(Categoria idCategoria) {
-		this.idCategoria = idCategoria;
+		this.categoria = idCategoria;
 	}
 
-	@Column(name = "descricaoModelo", length = 50)
+	
 	public String getDescricaoModelo() {
 		return this.descricaoModelo;
 	}

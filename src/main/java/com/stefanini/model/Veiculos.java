@@ -20,26 +20,28 @@ public class Veiculos implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	@Id
+	@Column(name = "placa", unique = true, nullable = false, length = 7)
 	private String placa;
-	private int cpfProprietario;
+	@ManyToOne
+	private Proprietario proprietario;
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="idModelo")
 	private Modelo idModelo;
+	@Column(name = "uf", nullable = false, length = 2)
 	private String uf;
 
 	public Veiculos() {
 	}
 
-	public Veiculos(String placa, int cpfProprietario, Modelo idModelo, String uf) {
+	public Veiculos(String placa, Proprietario cpfProprietario, Modelo idModelo, String uf) {
 		this.placa = placa;
-		this.cpfProprietario = cpfProprietario;
+		this.proprietario = cpfProprietario;
 		this.idModelo = idModelo;
 		this.uf = uf;
 	}
 
-	@Id
-
-	@Column(name = "placa", unique = true, nullable = false, length = 7)
+	
 	public String getPlaca() {
 		return this.placa;
 	}
@@ -48,13 +50,13 @@ public class Veiculos implements java.io.Serializable {
 		this.placa = placa;
 	}
 
-	@Column(name = "cpfProprietario", nullable = false)
-	public int getCpfProprietario() {
-		return this.cpfProprietario;
+	
+	public Proprietario getProprietario() {
+		return this.proprietario;
 	}
 
-	public void setCpfProprietario(int cpfProprietario) {
-		this.cpfProprietario = cpfProprietario;
+	public void setProprietario(Proprietario cpfProprietario) {
+		this.proprietario = cpfProprietario;
 	}
 
 	//@Column(name = "idModelo", nullable = false)
@@ -66,7 +68,7 @@ public class Veiculos implements java.io.Serializable {
 		this.idModelo = idModelo;
 	}
 
-	@Column(name = "uf", nullable = false, length = 2)
+	
 	public String getUf() {
 		return this.uf;
 	}

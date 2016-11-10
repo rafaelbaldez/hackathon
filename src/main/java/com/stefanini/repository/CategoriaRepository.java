@@ -20,7 +20,7 @@ public class CategoriaRepository {
 		this.manager.merge(categoria);
 	}
 
-	public Categoria busca(Integer id) {
+	public Categoria busca(int id) {
 		return this.manager.find(Categoria.class, id);
 	}
 
