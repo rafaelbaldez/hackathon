@@ -4,10 +4,10 @@ App.factory('AgenteService', function($http, API){
 			return $http.get(API+'agente');
 		},
 		create: function(item){
-			return $http.post(API+'agente', item);
+			return $http.post(API+'agente/', item);
 		},
 		update: function(item, id){
-			return $http.put(API+'agente/'+id, item);	
+			return $http.post(API+'agente/atualizar', item);	
 		},
 		delete: function(id){
 			return $http.delete(API+'agente/'+id);

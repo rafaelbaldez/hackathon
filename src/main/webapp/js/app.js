@@ -13,7 +13,7 @@ App.config(function($routeProvider){
 
 	.when('/create', {
 		templateUrl: 'views/create.html',
-		controller: 'CreateCtrl'
+		controller: 'AgenteCtrl'
 	})
 
 	.when('/editarAgente', {
@@ -22,4 +22,4 @@ App.config(function($routeProvider){
 	})
 });
 
-App.value('API', 'http://localhost:8081/angular-app/service/');
+App.value('API', 'http://localhost:8081/primefaces-app/service/');

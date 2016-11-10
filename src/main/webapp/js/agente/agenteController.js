@@ -25,11 +25,16 @@ App.controller('AgenteCtrl', function($scope, AgenteService, $route,$routeParams
 		EnvioService.addParametro(item);
 		$location.path('/editarAgente');
 	}
-
+	
 	$scope.atualizar = function(item){
-		AgenteService.update(item, item.idAgente).then(function(data){
-				$location.path('/');
+		AgenteService.update(item).then(function(data){
+				$location.path('/agente');
 			});
 	}
+	//$scope.cadastrar = function(item){
+		//AgenteService.create(item).then(function(data){
+			//	$location.path('/agente');
+			//});
+	//}
 	
 });

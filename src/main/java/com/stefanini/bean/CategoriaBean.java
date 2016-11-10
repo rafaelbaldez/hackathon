@@ -3,14 +3,14 @@ package com.stefanini.bean;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.stefanini.model.Categoria;
 import com.stefanini.service.CategoriaService;
 @Named("categoriaMB")
-@SessionScoped
+@RequestScoped
 public class CategoriaBean implements Serializable {
 	
 	/**

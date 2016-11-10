@@ -7,7 +7,6 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
-import com.stefanini.model.Categoria;
 import com.stefanini.model.Proprietario;
 import com.stefanini.repository.ProprietarioRepository;
 

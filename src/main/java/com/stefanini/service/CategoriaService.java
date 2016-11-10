@@ -23,6 +23,7 @@ public class CategoriaService {
 	public ArrayList<Categoria> listar(){
 		return (ArrayList<Categoria>) categoriaRepository.lista();
 	}
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public Categoria busca(int id){
 		return categoriaRepository.busca(id);
 	}

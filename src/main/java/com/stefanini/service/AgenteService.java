@@ -1,5 +1,7 @@
 package com.stefanini.service;
 
+import java.util.ArrayList;
+
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
@@ -16,5 +18,17 @@ public class AgenteService {
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void incluir(Agente agente){
 		agenteRepository.incluir(agente);
+	}
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public ArrayList<Agente> listar(){
+		return (ArrayList<Agente>) agenteRepository.lista();
+	}
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public Agente busca(int id){
+		return agenteRepository.busca(id);
+	}
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public void altera(Agente agente){
+		agenteRepository.altera(agente);;
 	}
 }

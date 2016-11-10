@@ -2,19 +2,15 @@ package com.stefanini.bean;
 
 import java.io.Serializable;
 
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.stefanini.model.Agente;
-import com.stefanini.model.Categoria;
-import com.stefanini.model.Modelo;
 import com.stefanini.service.AgenteService;
-import com.stefanini.service.CategoriaService;
-import com.stefanini.service.ModeloService;
 
 @Named("agenteMB")
-@SessionScoped
+@RequestScoped
 public class AgenteBean implements Serializable {
 	
     /**
