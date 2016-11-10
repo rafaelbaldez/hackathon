@@ -31,4 +31,8 @@ public class AgenteService {
 	public void altera(Agente agente){
 		agenteRepository.altera(agente);;
 	}
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public void deleta(Agente agente){
+		agenteRepository.deleta(agente);;
+	}
 }

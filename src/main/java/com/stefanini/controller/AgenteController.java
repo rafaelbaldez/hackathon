@@ -8,6 +8,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -36,13 +37,22 @@ public class AgenteController {
 	    	return "Agente cadastrado com sucesso!";
 	    }
 	 @POST
+	 @Path("/deletar/{A1}")
+	    //@Consumes(MediaType.APPLICATION_JSON)
+	    @Produces(MediaType.APPLICATION_JSON)
+	    public void deleta(@PathParam("A1")int id){
+		 agenteService.deleta(agenteService.busca(id));
+		 System.out.println("deletou o "+id);
+	 }
+	 @POST
 	 @Path("/cadastrar")
 	    @Consumes(MediaType.APPLICATION_JSON)
 	    @Produces(MediaType.APPLICATION_JSON)
-	    public String cadastrarAgente(Agente agente) {
+	    public void cadastraAgente(Agente agente) {
 	    	agenteService.incluir(agente);
-	    	return "Agente cadastrado com sucesso!";
+	    	
 	    }
+	 
 	/* @POST
 		@Path("/cadastrarAgente")
 		@Produces(MediaType.APPLICATION_JSON)

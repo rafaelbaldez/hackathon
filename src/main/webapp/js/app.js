@@ -12,7 +12,7 @@ App.config(function($routeProvider){
 	})
 
 	.when('/create', {
-		templateUrl: 'views/create.html',
+		templateUrl: 'views/agente/cadastrarAgente.html',
 		controller: 'AgenteCtrl'
 	})
 

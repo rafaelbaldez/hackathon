@@ -14,7 +14,7 @@ App.controller('AgenteCtrl', function($scope, AgenteService, $route,$routeParams
 	$scope.agenteEditar = EnvioService.getParametro();
 	
 	$scope.deletar = function(id){
-		AgenteService.delete(id).then(function(data){
+		AgenteService.deleta(id).then(function(data){
 			console.log(data);
 			$route.reload();
 		});	
@@ -31,10 +31,11 @@ App.controller('AgenteCtrl', function($scope, AgenteService, $route,$routeParams
 				$location.path('/agente');
 			});
 	}
-	//$scope.cadastrar = function(item){
-		//AgenteService.create(item).then(function(data){
-			//	$location.path('/agente');
-			//});
-	//}
+	/*$scope.cadastrar = function(item){
+		EnvioService.addParametro(item);
+		AgenteService.create(item).then(function(data){
+				$location.path('/agente');
+			});
+	}*/
 	
 });
