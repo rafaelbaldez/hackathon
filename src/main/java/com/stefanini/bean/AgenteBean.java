@@ -28,7 +28,7 @@ public class AgenteBean implements Serializable {
     
     public String chamar() {
     	agenteService.incluir(agente);
-    	return "/teste";
+    	return "/index";
     }
     
     public ArrayList<Agente> listar(){

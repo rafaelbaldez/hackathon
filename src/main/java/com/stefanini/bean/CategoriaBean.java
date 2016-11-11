@@ -24,7 +24,7 @@ public class CategoriaBean implements Serializable {
 	
 	 public String chamar(){
 	    	categoriaService.incluir(categoria);
-	    	return "/teste";
+	    	return "/index";
 	    }
 	
 	public ArrayList<Categoria> listar(){

@@ -36,7 +36,7 @@ public class ModeloBean implements Serializable {
     public String chamar(){
     	modelo.setIdCategoria(categoriaService.busca(idCat));
     	modeloService.incluir(modelo);
-    	return "/teste";
+    	return "/index";
     }
     
     public Modelo getModelo() {

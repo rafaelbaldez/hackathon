@@ -36,7 +36,7 @@ public class VeiculosBean implements Serializable {
     	veiculos.setIdModelo(modeloService.busca(idModelo));
     	veiculos.setProprietario(proprietarioService.busca(idProprietario));
     	veiculoService.incluir(veiculos);
-    	return "/teste";
+    	return "/index";
     }
 	
 	public ArrayList<Veiculos> listar(){

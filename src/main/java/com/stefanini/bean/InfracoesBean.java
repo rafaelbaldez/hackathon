@@ -17,6 +17,7 @@ import org.primefaces.model.map.Marker;
 
 import com.stefanini.model.Infracoes;
 import com.stefanini.model.Localinfracao;
+import com.stefanini.model.Veiculos;
 import com.stefanini.service.AgenteService;
 import com.stefanini.service.InfracoesService;
 import com.stefanini.service.TipoInfracaoService;
@@ -54,7 +55,7 @@ public class InfracoesBean implements Serializable {
     private Marker marker;
   
     
-    public void mostrarInfracoes() {
+    public String mostrarInfracoes() {
     	//cadastroModel = new DefaultMapModel();
     	advancedModel = new DefaultMapModel();
         ArrayList<Infracoes> infracoes= infracoesService.listar();
@@ -65,6 +66,7 @@ public class InfracoesBean implements Serializable {
         			" Placa do Veiculo:"+x.getVeiculo().getPlaca();
         	advancedModel.addOverlay(new Marker(cord, mensagem));		
         }
+        return "/listarInfracao.xhtml?faces-redirect=true";
     }
   
     public MapModel getAdvancedModel() {
@@ -88,14 +90,19 @@ public class InfracoesBean implements Serializable {
 		return infracoesService.listar();
 	}
 	 public String chamar() {
-		 	infracoes.setVeiculo(veiculoService.buscar(placa));
+		 	Veiculos v = veiculoService.buscar(placa);
+		 	if(v==null){
+		 		return "/erro";
+		 	}else{
+		 	infracoes.setVeiculo(v);
 		 	infracoes.setIdTipoInfracao(tipoInfracaoService.busca(tipo));
 		 	local.setLatitude(latlng.getLat());
 		 	local.setLongitude(latlng.getLng());
 		 	infracoes.setIdLocalInfracao(local);
 		 	infracoes.setIdAgente(agenteService.busca(agente));;
 	    	infracoesService.incluir(infracoes);
-	    	return "/teste";
+	    	return mostrarInfracoes();
+		 	}
 	    }
 	 
 	 public void onPointSelect(PointSelectEvent event) {

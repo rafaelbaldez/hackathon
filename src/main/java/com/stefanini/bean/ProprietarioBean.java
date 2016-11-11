@@ -27,7 +27,7 @@ public class ProprietarioBean implements Serializable {
     
     public String chamar() {
         proprietarioService.incluir(proprietario);
-    	return "/teste";
+    	return "/index";
     }
     public ArrayList<Proprietario> listar(){
 		return proprietarioService.listar();
