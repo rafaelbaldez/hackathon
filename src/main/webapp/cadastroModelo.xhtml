@@ -10,8 +10,29 @@
 <h:head>
 </h:head>
 <h:body>
+<h:form>
+        <p:menubar>
+        <p:submenu label="Detran" icon="ui-icon-document">
+            <p:submenu label="Infracao" icon="ui-icon-contact">
+                <p:menuitem value="Cadastro" action="/cadastroInfracao.xhtml?faces-redirect=true" />
+                <p:menuitem value="Listar" action="/listarInfracao.xhtml?faces-redirect=true" />
+            </p:submenu>
+            <p:submenu label="Agente" icon="ui-icon-contact">
+                <p:menuitem value="Cadastro" action="/cadastroAgente" />
+                
+            </p:submenu>
+            <p:submenu label="Veiculo" icon="ui-icon-contact">
+                <p:menuitem value="Cadastrar Veiculo" action="/cadastroVeiculo" />
+                <p:menuitem value="Cadastrar Modelo" action="/cadastroModelo" />
+                <p:menuitem value="Cadastrar Categoria" action="/cadastroCategoria" />
+                <p:menuitem value="Cadastrar Proprietario" url="/cadastroProprietario" />
+            </p:submenu>  
+        </p:submenu>
+ 
+ </p:menubar>
+    </h:form>
 	<h:form>
-		<h:panelGrid columns="2" title="cadastro de proprietario">
+		<h:panelGrid columns="2" title="cadastro de proprietario" >
 			<p:outputLabel for="nome" value="Descrição do Modelo"  />
 			<p:inputText id="nome" value="#{modeloMB.modelo.descricaoModelo}" />
 			<br />
@@ -19,7 +40,7 @@
 				<f:selectItems value="#{categoriaMB.listar()}" var="item"
 					itemLabel="#{item.descricaiCategoria}" itemValue="#{item.idCategoria}" />
 			</h:selectOneMenu>
-			<h:commandButton value="Chamar Bean" action="#{modeloMB.chamar()}"/>
+			<h:commandButton value="Cadastrar Modelo" action="#{modeloMB.chamar()}"/>
 		</h:panelGrid>
 		
 	</h:form>

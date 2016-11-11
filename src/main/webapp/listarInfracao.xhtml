@@ -11,6 +11,27 @@
 		src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;key=AIzaSyDgA7twWDGrXW6U8bn9AdGVop7S-rJ1JiE"></script>
 </h:head>
 <h:body>
+<h:form>
+        <p:menubar>
+        <p:submenu label="Detran" icon="ui-icon-document">
+            <p:submenu label="Infracao" icon="ui-icon-contact">
+                <p:menuitem value="Cadastro" action="/cadastroInfracao.xhtml?faces-redirect=true" />
+                <p:menuitem value="Listar" action="/listarInfracao.xhtml?faces-redirect=true" />
+            </p:submenu>
+            <p:submenu label="Agente" icon="ui-icon-contact">
+                <p:menuitem value="Cadastro" action="/cadastroAgente" />
+                
+            </p:submenu>
+            <p:submenu label="Veiculo" icon="ui-icon-contact">
+                <p:menuitem value="Cadastrar Veiculo" action="/cadastroVeiculo" />
+                <p:menuitem value="Cadastrar Modelo" action="/cadastroModelo" />
+                <p:menuitem value="Cadastrar Categoria" action="/cadastroCategoria" />
+                <p:menuitem value="Cadastrar Proprietario" url="/cadastroProprietario" />
+            </p:submenu>  
+        </p:submenu>
+ 
+ </p:menubar>
+    </h:form>
 	<h:form>
 		<p:gmap id="gmap" center="-15.7217174,-48.0783226" zoom="13"
 			type="ROADMAP" model="#{infracaoMB.advancedModel}"
@@ -30,7 +51,7 @@
 				</p:outputPanel>
 			</p:gmapInfoWindow>
 		</p:gmap>
-		<p:commandButton value="Mostrar infracoes" action="#{infracaoMB.mostrarInfracoes()}" update="gmap"></p:commandButton>
+		<p:commandButton value="Encerrar Consulta" action="/index" update="gmap"></p:commandButton>
 	</h:form>
 </h:body>
 </html>

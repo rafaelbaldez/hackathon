@@ -7,6 +7,27 @@
 <h:head>
 </h:head>
 <h:body>
+<h:form>
+        <p:menubar>
+        <p:submenu label="Detran" icon="ui-icon-document">
+            <p:submenu label="Infracao" icon="ui-icon-contact">
+                <p:menuitem value="Cadastro" action="/cadastroInfracao.xhtml?faces-redirect=true" />
+                <p:menuitem value="Listar" action="/listarInfracao.xhtml?faces-redirect=true" />
+            </p:submenu>
+            <p:submenu label="Agente" icon="ui-icon-contact">
+                <p:menuitem value="Cadastro" action="/cadastroAgente" />
+                
+            </p:submenu>
+            <p:submenu label="Veiculo" icon="ui-icon-contact">
+                <p:menuitem value="Cadastrar Veiculo" action="/cadastroVeiculo" />
+                <p:menuitem value="Cadastrar Modelo" action="/cadastroModelo" />
+                <p:menuitem value="Cadastrar Categoria" action="/cadastroCategoria" />
+                <p:menuitem value="Cadastrar Proprietario" url="/cadastroProprietario" />
+            </p:submenu>  
+        </p:submenu>
+ 
+ </p:menubar>
+    </h:form>
     <h:form>
     <p:fieldset legend="Cadastro Proprietário">
     	<h:panelGrid columns="2" title="cadastro de proprietario" >
