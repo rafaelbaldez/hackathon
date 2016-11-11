@@ -23,6 +23,9 @@ public class Infracoes implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "idInfracao", unique = true, nullable = false)
 	private Integer idInfracao;
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="idAgente")
@@ -33,31 +36,32 @@ public class Infracoes implements java.io.Serializable {
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="idTipoInfracao")
 	private Tipoinfracao idTipoInfracao;
-	private String placa;
+	@ManyToOne(cascade=CascadeType.ALL)
+	private Veiculos veiculo;
+	
+
+	@Column(name = "velocidade")
 	private Integer velocidade;
 
 	public Infracoes() {
 	}
 
-	public Infracoes(Agente idAgente, Localinfracao idLocalInfracao, Tipoinfracao idTipoInfracao, String placa) {
+	public Infracoes(Agente idAgente, Localinfracao idLocalInfracao, Tipoinfracao idTipoInfracao, Veiculos veiculo) {
 		this.idAgente = idAgente;
 		this.idLocalInfracao = idLocalInfracao;
 		this.idTipoInfracao = idTipoInfracao;
-		this.placa = placa;
+		this.veiculo= veiculo;
 	}
 
-	public Infracoes(Agente idAgente, Localinfracao idLocalInfracao, Tipoinfracao idTipoInfracao, String placa, Integer velocidade) {
+	public Infracoes(Agente idAgente, Localinfracao idLocalInfracao, Tipoinfracao idTipoInfracao, Veiculos veiculo, Integer velocidade) {
 		this.idAgente = idAgente;
 		this.idLocalInfracao = idLocalInfracao;
 		this.idTipoInfracao = idTipoInfracao;
-		this.placa = placa;
+		this.veiculo= veiculo;
 		this.velocidade = velocidade;
 	}
 
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
-
-	@Column(name = "idInfracao", unique = true, nullable = false)
+	
 	public Integer getIdInfracao() {
 		return this.idInfracao;
 	}
@@ -92,17 +96,14 @@ public class Infracoes implements java.io.Serializable {
 	public void setIdTipoInfracao(Tipoinfracao idTipoInfracao) {
 		this.idTipoInfracao = idTipoInfracao;
 	}
-
-	@Column(name = "placa", nullable = false, length = 7)
-	public String getPlaca() {
-		return this.placa;
+	public Veiculos getVeiculo() {
+		return veiculo;
 	}
 
-	public void setPlaca(String placa) {
-		this.placa = placa;
+	public void setVeiculo(Veiculos veiculo) {
+		this.veiculo = veiculo;
 	}
-
-	@Column(name = "velocidade")
+	
 	public Integer getVelocidade() {
 		return this.velocidade;
 	}

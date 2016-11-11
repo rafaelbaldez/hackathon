@@ -1,12 +1,14 @@
 package com.stefanini.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.stefanini.model.Agente;
+import com.stefanini.model.Tipoinfracao;
 import com.stefanini.service.AgenteService;
 
 @Named("agenteMB")
@@ -28,7 +30,10 @@ public class AgenteBean implements Serializable {
     	agenteService.incluir(agente);
     	return "/teste";
     }
-
+    
+    public ArrayList<Agente> listar(){
+		return agenteService.listar();
+	}
 
 
 	public Agente getAgente() {

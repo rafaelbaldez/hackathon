@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+ <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;key=AIzaSyDgA7twWDGrXW6U8bn9AdGVop7S-rJ1JiE"></script>
+</h:head>
+<h:body>
+	<h:form>
+		<p:fieldset legend="Cadastro de Infracao">
+			<h:panelGrid columns="2" title="cadastro de proprietario">
+				<p:outputLabel for="placa" value="Placa" />
+				<p:inputText id="placa" value="#{infracaoMB.placa}" />
+
+				<p:outputLabel for="local" value="Localizacao" />
+				<p:inputText id="local"
+					value="#{infracaoMB.local.descricaoLocalInfracao}" />
+			
+			Agente:
+			<h:selectOneMenu value="#{infracaoMB.agente}">
+					<f:selectItems value="#{agenteMB.listar()}" var="item"
+						itemLabel="#{item.nome}" itemValue="#{item.idAgente}" />
+				</h:selectOneMenu>
+			Tipo de Infracao:
+			<h:selectOneMenu value="#{infracaoMB.tipo}">
+					<f:selectItems value="#{tipoInfracaoMB.listar()}" var="item"
+						itemLabel="#{item.descricaoTipoInfracao}"
+						itemValue="#{item.idTipoInfracao}" />
+				</h:selectOneMenu>
+				
+				<h:commandButton value="Cadastrar Infracao"
+					action="#{infracaoMB.chamar()}" />
+			</h:panelGrid>
+		</p:fieldset>
+		
+	</h:form>
+	<p:gmap id="gmap" center="-15.7217174,-48.0783226" zoom="15"
+					type="ROADMAP" style="width:100%;height:400px" model="#{infracaoMB.cadastroModel}">
+					<p:ajax event="pointSelect" listener="#{infracaoMB.onPointSelect}" update="gmap"/>
+				</p:gmap>
+				<script type="javascript">
+</script>
+	
+</h:body>
+</html>

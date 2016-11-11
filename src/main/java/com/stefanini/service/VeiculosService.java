@@ -23,4 +23,8 @@ public class VeiculosService {
 	public ArrayList<Veiculos> listar(){
 		return (ArrayList<Veiculos>) veiculosRepository.lista();
 	}
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public Veiculos buscar(String id){
+		return veiculosRepository.busca(id);
+	}
 }

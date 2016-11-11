@@ -31,11 +31,16 @@ App.controller('AgenteCtrl', function($scope, AgenteService, $route,$routeParams
 				$location.path('/agente');
 			});
 	}
-	/*$scope.cadastrar = function(item){
-		EnvioService.addParametro(item);
-		AgenteService.create(item).then(function(data){
-				$location.path('/agente');
-			});
-	}*/
+	$scope.cadastrar = function(agente){
+		var data = {
+			nome: agente.nome,
+			dtContratacao : agente.dtContratacao,
+			tempoServico : agente.tempoServico
+		};
+
+		AgenteService.create(data).then(function(data){
+			$location.path('/');
+		});
+	}
 	
 });

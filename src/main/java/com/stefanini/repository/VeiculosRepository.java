@@ -19,7 +19,7 @@ public class VeiculosRepository {
 		this.manager.merge(veiculos);
 	}
 
-	public Veiculos busca(Integer id) {
+	public Veiculos busca(String id) {
 		return this.manager.find(Veiculos.class, id);
 	}
 
