@@ -40,8 +40,8 @@ public class Agente implements java.io.Serializable {
 	private Date dtContratacao;
 	@Column(name = "tempoServico")
 	private Integer tempoServico;
-	//@OneToMany(mappedBy="idAgente")
-	//private List<Infracoes> infracoes;
+	@OneToMany(mappedBy="idAgente")
+	private List<Infracoes> infracoes;
 	
 
 	public Agente() {
@@ -89,13 +89,13 @@ public class Agente implements java.io.Serializable {
 		this.tempoServico = tempoServico;
 	}
 
-	/*public List<Infracoes> getInfracoes() {
+	public List<Infracoes> getInfracoes() {
 		return infracoes;
 	}
 
 	public void setInfracoes(List<Infracoes> infracoes) {
 		this.infracoes = infracoes;
-	}*/
+	}
 	
 	
 
