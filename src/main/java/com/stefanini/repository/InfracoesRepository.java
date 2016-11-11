@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
+import com.stefanini.model.Agente;
 import com.stefanini.model.Infracoes;
 
 public class InfracoesRepository {
@@ -26,5 +27,8 @@ public class InfracoesRepository {
 	public List<Infracoes> lista() {
 		return  this.manager.createQuery("select c from Infracoes c", Infracoes.class)
 				.getResultList();
+	}
+	public void deleta(Infracoes infracao){
+		this.manager.remove(infracao);
 	}
 }

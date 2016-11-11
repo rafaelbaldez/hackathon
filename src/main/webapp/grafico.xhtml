@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
 <h:head>
-	<script type="text/javascript"
-		src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;key=AIzaSyDgA7twWDGrXW6U8bn9AdGVop7S-rJ1JiE"></script>
 </h:head>
 <h:body>
-<h:form>
+    <h:form>
         <p:menubar>
         <p:submenu label="Detran" icon="ui-icon-document">
             <p:submenu label="Infracao" icon="ui-icon-contact">
@@ -26,32 +22,12 @@
                 <p:menuitem value="Cadastrar Veiculo" action="/cadastroVeiculo" />
                 <p:menuitem value="Cadastrar Modelo" action="/cadastroModelo" />
                 <p:menuitem value="Cadastrar Categoria" action="/cadastroCategoria" />
-                <p:menuitem value="Cadastrar Proprietario" url="/cadastroProprietario" />
+                <p:menuitem value="Cadastrar Proprietario" action="/cadastroProprietario" />
             </p:submenu>  
         </p:submenu>
  
  </p:menubar>
     </h:form>
-	<h:form>
-		<p:gmap id="gmap" center="-15.7217174,-48.0783226" zoom="13"
-			type="ROADMAP" model="#{infracaoMB.advancedModel}"
-			style="width:100%;height:400px">
-
-			<p:ajax event="overlaySelect"
-				listener="#{infracaoMB.onMarkerSelect}" />
-
-			<p:gmapInfoWindow id="infoWindow">
-				<p:outputPanel
-					style="text-align: center; display: block; margin: auto">
-
-					<h:outputText value="#{infracaoMB.marker.title}" />
-					<br />
-					
-
-				</p:outputPanel>
-			</p:gmapInfoWindow>
-		</p:gmap>
-		<p:commandButton value="Encerrar Consulta" action="/index" update="gmap"></p:commandButton>
-	</h:form>
+    <p:chart type="pie" model="#{agenteMB.populaRelatorio()}"  style="width:400px;height:300px" />
 </h:body>
 </html>
